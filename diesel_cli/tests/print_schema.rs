@@ -69,6 +69,14 @@ fn print_schema_column_renaming() {
     test_print_schema("print_schema_column_renaming", vec!["--with-docs"]);
 }
 
+#[test]
+fn print_schema_custom_types() {
+    test_print_schema(
+        "print_schema_custom_types",
+        vec!["--import-types", "foo::*", "--import-types", "bar::*"],
+    );
+}
+
 #[cfg(feature = "sqlite")]
 const BACKEND: &str = "sqlite";
 #[cfg(feature = "postgres")]

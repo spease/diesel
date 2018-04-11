@@ -120,6 +120,14 @@ pub fn build_cli() -> App<'static, 'static> {
             Arg::with_name("with-docs")
                 .long("with-docs")
                 .help("Render documentation comments for tables and columns"),
+        )
+        .arg(
+            Arg::with_name("import-types")
+                .long("import-types")
+                .takes_value(true)
+                .multiple(true)
+                .number_of_values(1)
+                .help("A list of types to import for every table, separated by commas"),
         );
 
     let config_arg = Arg::with_name("CONFIG_FILE")

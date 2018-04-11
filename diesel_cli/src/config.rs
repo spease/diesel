@@ -48,10 +48,16 @@ pub struct PrintSchema {
     pub filter: print_schema::Filtering,
     #[serde(default)]
     pub schema: Option<String>,
+    #[serde(default)]
+    pub import_types: Option<Vec<String>>,
 }
 
 impl PrintSchema {
     pub fn schema_name(&self) -> Option<&str> {
         self.schema.as_ref().map(|s| &**s)
+    }
+
+    pub fn import_types(&self) -> Option<&[String]> {
+        self.import_types.as_ref().map(|v| &**v)
     }
 }
