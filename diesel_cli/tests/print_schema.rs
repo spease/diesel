@@ -117,8 +117,7 @@ fn test_print_schema(test_name: &str, args: Vec<&str>) {
 
 fn test_print_schema_config(test_name: &str, test_path: &Path, schema: String, expected: String) {
     let config = read_file(&test_path.join("diesel.toml"));
-    let mut p = project(&format!("{}_config", test_name))
-        .file("diesel.toml", &config);
+    let mut p = project(&format!("{}_config", test_name)).file("diesel.toml", &config);
 
     let patch_file = backend_file_path(test_name, "schema.patch");
     if patch_file.exists() {

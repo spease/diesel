@@ -88,8 +88,7 @@ pub fn output_schema(
             let stderr = String::from_utf8_lossy(&output.stderr);
             return Err(format!(
                 "Failed to apply schema patch. stdout: {} stderr: {}",
-                stdout,
-                stderr,
+                stdout, stderr,
             ).into());
         }
     }
